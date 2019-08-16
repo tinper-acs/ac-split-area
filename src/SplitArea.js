@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     clsfix:PropTypes.string,
-    open:PropTypes.bool,
-    ctn:PropTypes.node
+    open:PropTypes.bool,//打开关闭
+    ctn:PropTypes.node,//内容
+    defaultOpen:PropTypes.bool,//默认展开收起
+    openChange:PropTypes.func,//展开收起
 };
 
 const defaultProps = {
     clsfix:'ac-split-area',
-    open:false,
-    ctn:'操作信息'
+    defaultOpen:false,
+    ctn:'操作信息',
+    openChange:()=>{}
 };
 
 class SplitArea extends Component {
@@ -18,23 +21,34 @@ class SplitArea extends Component {
     constructor(props){
         super(props);
         this.state={
-            open:props.open||false
+            open:props.open==undefined?props.defaultOpen:props.open
         }
     }
-
-    componentWillReceiveProps(nextProps){
-        if('open' in nextProps){
-            this.setState({
-                open:nextProps.open
-            })
-        }
-    }
+    
+    
 
     click=()=>{
         this.setState({
             open:!this.state.open
         })
+        this.props.openChange(!this.state.open)
     }
+    static getDerivedStateFromProps(nextProps) {
+        if('open' in nextProps){
+            return {
+                open:nextProps.open
+            }
+        }
+    }
+
+    // componentWillReceiveProps(nextProps){
+    //     if('open' in nextProps){
+    //         console.log(nextProps.open)
+    //         this.setState({
+    //             open:nextProps.open
+    //         })
+    //     }
+    // }
 
     render(){
         let { children,clsfix,ctn } = this.props;

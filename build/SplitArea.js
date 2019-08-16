@@ -24,14 +24,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
     clsfix: _propTypes2["default"].string,
-    open: _propTypes2["default"].bool,
-    ctn: _propTypes2["default"].node
+    open: _propTypes2["default"].bool, //打开关闭
+    ctn: _propTypes2["default"].node, //内容
+    defaultOpen: _propTypes2["default"].bool, //默认展开收起
+    openChange: _propTypes2["default"].func //展开收起
 };
 
 var defaultProps = {
     clsfix: 'ac-split-area',
-    open: false,
-    ctn: '操作信息'
+    defaultOpen: false,
+    ctn: '操作信息',
+    openChange: function openChange() {}
 };
 
 var SplitArea = function (_Component) {
@@ -46,21 +49,31 @@ var SplitArea = function (_Component) {
             _this.setState({
                 open: !_this.state.open
             });
+            _this.props.openChange(!_this.state.open);
         };
 
         _this.state = {
-            open: props.open || false
+            open: props.open == undefined ? props.defaultOpen : props.open
         };
         return _this;
     }
 
-    SplitArea.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    SplitArea.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps) {
         if ('open' in nextProps) {
-            this.setState({
+            return {
                 open: nextProps.open
-            });
+            };
         }
     };
+
+    // componentWillReceiveProps(nextProps){
+    //     if('open' in nextProps){
+    //         console.log(nextProps.open)
+    //         this.setState({
+    //             open:nextProps.open
+    //         })
+    //     }
+    // }
 
     SplitArea.prototype.render = function render() {
         var _props = this.props,
