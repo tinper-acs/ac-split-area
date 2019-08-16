@@ -1,3 +1,14 @@
+<a name="0.0.2"></a>
+## [0.0.2](https://github.com/tinper-bee/ac-split-area/compare/v0.0.1...v0.0.2) (2019-08-16)
+
+
+### Features
+
+* **ac-split-area:** 首次发布 ([453abc4](https://github.com/tinper-bee/ac-split-area/commit/453abc4))
+* **ac0split-area:** open控制 ([f694704](https://github.com/tinper-bee/ac-split-area/commit/f694704))
+
+
+
 <a name="0.0.1"></a>
 ## [0.0.1](https://github.com/tinper-bee/ac-split-area/compare/519ba87...v0.0.1) (2019-08-06)
 
