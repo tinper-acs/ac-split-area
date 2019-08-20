@@ -76,7 +76,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
-	var Demo1 = __webpack_require__(268);var Demo2 = __webpack_require__(271);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本示例", "code": "/**\n*\n* @title 基本示例\n* @description 基本示例\n*\n*/\nimport React, { Component } from 'react';\nimport { FormControl } from 'tinper-bee';\nimport SplitArea from \"ac-split-area\"\n\nclass Demo1 extends Component {\n    render () {\n        return (\n            <div>\n                <div>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                </div>\n                <SplitArea>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                </SplitArea>\n            </div>\n        )\n    }\n}\n", "desc": " 基本示例" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 控制展开收起，自定义内容", "code": "/**\n*\n* @title 控制展开收起，自定义内容\n* @description 设置 open 属性，使用 openChange 回调\n*\n*/\nimport React, { Component } from 'react';\nimport { FormControl } from 'tinper-bee';\nimport SplitArea from \"ac-split-area\"\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            open:false\n        }\n    }\n    openChange=(open)=>{\n        this.setState({\n            open\n        })\n    }\n\n    render () {\n        return (\n            <div>\n                <div>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                </div>\n                <SplitArea ctn={this.state.open?'我展开了':'我收起了'}\n                 open={this.state.open} \n                 openChange={this.openChange}\n                 >\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                </SplitArea>\n            </div>\n        )\n    }\n}\n", "desc": " 设置 open 属性，使用 openChange 回调" }];
+	var Demo1 = __webpack_require__(268);var Demo2 = __webpack_require__(272);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本示例", "code": "/**\n*\n* @title 基本示例\n* @description 基本示例\n*\n*/\nimport React, { Component } from 'react';\nimport { FormControl } from 'tinper-bee';\nimport SplitArea from \"ac-split-area\"\n\nclass Demo1 extends Component {\n    render () {\n        return (\n            <div>\n                <div>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                </div>\n                <SplitArea>\n                    <div>操作信息1</div>\n                    <div>操作信息2</div>\n                </SplitArea>\n            </div>\n        )\n    }\n}\n", "desc": " 基本示例" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 控制展开收起，自定义内容", "code": "/**\n*\n* @title 控制展开收起，自定义内容\n* @description 设置 open 属性，使用 openChange 回调\n*\n*/\nimport React, { Component } from 'react';\nimport { FormControl } from 'tinper-bee';\nimport SplitArea from \"ac-split-area\"\n\nclass Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            open:false\n        }\n    }\n    openChange=(open)=>{\n        this.setState({\n            open\n        })\n    }\n\n    render () {\n        return (\n            <div>\n                <div>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                    <FormControl placeholder='请输入基本信息'/>\n                </div>\n                <SplitArea ctn={this.state.open?'我展开了':'我收起了'}\n                 open={this.state.open} \n                 openChange={this.openChange}\n                 >\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                    <FormControl placeholder='请输入操作信息'/>\n                </SplitArea>\n            </div>\n        )\n    }\n}\n", "desc": " 设置 open 属性，使用 openChange 回调" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -36891,10 +36891,16 @@
 	            _react2['default'].createElement(
 	                _src2['default'],
 	                null,
-	                _react2['default'].createElement(_beeFormControl2['default'], { placeholder: '\u8BF7\u8F93\u5165\u64CD\u4F5C\u4FE1\u606F' }),
-	                _react2['default'].createElement(_beeFormControl2['default'], { placeholder: '\u8BF7\u8F93\u5165\u64CD\u4F5C\u4FE1\u606F' }),
-	                _react2['default'].createElement(_beeFormControl2['default'], { placeholder: '\u8BF7\u8F93\u5165\u64CD\u4F5C\u4FE1\u606F' }),
-	                _react2['default'].createElement(_beeFormControl2['default'], { placeholder: '\u8BF7\u8F93\u5165\u64CD\u4F5C\u4FE1\u606F' })
+	                _react2['default'].createElement(
+	                    'div',
+	                    null,
+	                    '\u64CD\u4F5C\u4FE1\u606F1'
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    null,
+	                    '\u64CD\u4F5C\u4FE1\u606F2'
+	                )
 	            )
 	        );
 	    };
@@ -36942,6 +36948,10 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
+	var _i18n = __webpack_require__(271);
+	
+	var _i18n2 = _interopRequireDefault(_i18n);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -36957,14 +36967,30 @@
 	    open: _propTypes2['default'].bool, //打开关闭
 	    ctn: _propTypes2['default'].node, //内容
 	    defaultOpen: _propTypes2['default'].bool, //默认展开收起
-	    openChange: _propTypes2['default'].func //展开收起
+	    openChange: _propTypes2['default'].func, //展开收起
+	    localeCookie: _propTypes2['default'].string //当前语种的cookie key值
 	};
 	
 	var defaultProps = {
 	    clsfix: 'ac-split-area',
 	    defaultOpen: false,
-	    ctn: '操作信息',
-	    openChange: function openChange() {}
+	    openChange: function openChange() {},
+	    localeCookie: 'locale'
+	};
+	
+	var getCookie = function getCookie(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie != '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = cookies[i].trim();
+	            if (cookie.substring(0, name.length + 1) == name + '=') {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
 	};
 	
 	var SplitArea = function (_Component) {
@@ -36996,22 +37022,17 @@
 	        }
 	    };
 	
-	    // componentWillReceiveProps(nextProps){
-	    //     if('open' in nextProps){
-	    //         console.log(nextProps.open)
-	    //         this.setState({
-	    //             open:nextProps.open
-	    //         })
-	    //     }
-	    // }
-	
 	    SplitArea.prototype.render = function render() {
 	        var _props = this.props,
 	            children = _props.children,
 	            clsfix = _props.clsfix,
-	            ctn = _props.ctn;
+	            ctn = _props.ctn,
+	            localeCookie = _props.localeCookie;
 	        var open = this.state.open;
 	
+	        var locale = _i18n2['default'];
+	        if (getCookie(localeCookie) == 'zh_TW') locale = _i18n2['default'].zh_TW;
+	        if (getCookie(localeCookie) == 'en_US') locale = _i18n2['default'].en_US;
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: '' + clsfix },
@@ -37021,7 +37042,7 @@
 	                _react2['default'].createElement(
 	                    'span',
 	                    { className: clsfix + '-left-text' },
-	                    ctn
+	                    ctn ? ctn : locale.ctn
 	                ),
 	                _react2['default'].createElement(
 	                    'span',
@@ -37050,6 +37071,26 @@
 
 /***/ }),
 /* 271 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports['default'] = {
+	    'ctn': '操作信息',
+	    'en_US': {
+	        'ctn': 'Operational Information'
+	    },
+	    'zh_TW': {
+	        'ctn': '操作信息'
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

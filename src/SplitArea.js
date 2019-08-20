@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import i18n from './i18n'
 
 const propTypes = {
     clsfix:PropTypes.string,
@@ -7,14 +8,30 @@ const propTypes = {
     ctn:PropTypes.node,//内容
     defaultOpen:PropTypes.bool,//默认展开收起
     openChange:PropTypes.func,//展开收起
+    localeCookie:PropTypes.string,//当前语种的cookie key值
 };
 
 const defaultProps = {
     clsfix:'ac-split-area',
     defaultOpen:false,
-    ctn:'操作信息',
-    openChange:()=>{}
+    openChange:()=>{},
+    localeCookie:'locale'
 };
+
+const getCookie = (name) => {
+    let cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        let cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
 class SplitArea extends Component {
 
@@ -41,22 +58,16 @@ class SplitArea extends Component {
         }
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     if('open' in nextProps){
-    //         console.log(nextProps.open)
-    //         this.setState({
-    //             open:nextProps.open
-    //         })
-    //     }
-    // }
-
     render(){
-        let { children,clsfix,ctn } = this.props;
+        let { children,clsfix,ctn,localeCookie } = this.props;
         let { open } = this.state;
+        let locale=i18n;
+        if(getCookie(localeCookie)=='zh_TW')locale=i18n.zh_TW;
+        if(getCookie(localeCookie)=='en_US')locale=i18n.en_US;
         return (
             <div className={`${clsfix}`}>
                 <div onClick={this.click} className={`${clsfix}-left`}>
-                    <span className={`${clsfix}-left-text`}>{ctn}</span>
+                    <span className={`${clsfix}-left-text`}>{ctn?ctn:locale.ctn}</span>
                     <span className={`${clsfix}-left-line`}>
                         <span className={`${clsfix}-left-line-inner`}></span>
                     </span>
