@@ -19,8 +19,9 @@ class Demo1 extends Component {
                     <FormControl placeholder='请输入基本信息'/>
                 </div>
                 <SplitArea>
-                    <div>操作信息1</div>
-                    <div>操作信息2</div>
+                    <div>我是操作信息1</div>
+                    <div></div>
+                    <div>我是操作信息2</div>
                 </SplitArea>
             </div>
         )
